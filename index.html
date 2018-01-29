@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GitHub User Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="main-img">
+      <img src="img/33.jpeg" id="current">
+      <div class="button">
+      <button id="button">Load GitHub Users</button>
+      </div>
+    <div class="imgs"></div>
+   <div id="users"></div>
+  </div>
+  </div>
+ <script>
+   document.getElementById('button').addEventListener('click', loadUsers);
+
+   function loadUsers(){
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', 'https://api.github.com/users', true);
+
+     xhr.onload = function(){
+       if(this.status == 200) {
+         var users = JSON.parse(this.responseText);
+
+         var output = '';
+         for(var i in users){
+           output +=
+           '<div class="user">' +
+           '<img src="'+users[i].avatar_url+'">' +
+           '<ul id="ul">' +
+           '<li>ID: '+users[i].id+'</li>' +
+           '<li>Login: '+users[i].login+'</li>' +
+           '</ul>' +
+           '</div>';
+         }
+         document.getElementById('users').innerHTML = output;
+       }
+     }
+     xhr.send();
+   }
+  </script>
+ </body>
+</html>

@@ -1,0 +1,38 @@
+body {
+  margin:20px;
+  padding:0;
+  background: #333;
+}
+
+.container{
+   max-width: 800px;
+   height: auto;
+   margin: auto;
+   border: #fff solid 3px;
+   background: #fff;
+ }
+
+.button {
+   background-color: #4CAF50; /* Green */
+   border: none;
+   color: white;
+   padding: none;
+   padding-bottom: 2px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 20px;
+   width:800px;
+ }
+
+.main-img img {
+  width: 100%;
+  }
+
+.user {
+  padding-top: 2px;
+  width: 100%;
+}
+
+#ul {
+  list-style: none;
+}
